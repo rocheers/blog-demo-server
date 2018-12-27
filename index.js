@@ -1,13 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const errorHandler = require('./handlers/error');
+const authRouter = require('./routes/auth');
 
 const PORT = 8081;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/auth', authRouter);
 
 app.use(function(req, res, next) {
     let err = new Error('Not Found');

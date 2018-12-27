@@ -1,4 +1,8 @@
 node_modules/
 package-lock.json
 
+# System stuff
 .DS_Store
+
+# ENV config
+.env
