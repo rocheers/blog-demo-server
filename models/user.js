@@ -16,11 +16,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 6,
-        maxlength: 20
+        maxlength: 255
     },
     profileImageUrl: {
         type: String
-    }
+    },
+    messages: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Message'
+        }
+    ]
 });
 
 userSchema.pre('save', async function(next) {
