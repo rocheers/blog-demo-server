@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.set('debug', true);
 mongoose.Promise = Promise;
 mongoose.connect(
-    'mongodb://localhost/warbler',
+    process.env.MONGODB_URL || 'mongodb://localhost/warbler',
     {
         keepAlive: true,
         useNewUrlParser: true
